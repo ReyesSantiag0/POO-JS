@@ -1,0 +1,14 @@
+.center_forms {
+  width: 50%;
+  margin: auto;
+  padding: 1em;
+}
+
+.centrar_boton {
+  text-align: center;
+}
+
+.img_usuario {
+  width: 10%;
+  height: 10%;
+}
