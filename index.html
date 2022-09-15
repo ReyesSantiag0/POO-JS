@@ -57,7 +57,7 @@
 
                 <div class="mb-3">
                   <label for="exampleFormControlTextarea1" class="form-label">Fecha de Ingreso</label>
-                  <input type="text" class="form-control" id="txt_nombre" placeholder="22-11-2015">
+                  <input type="text" class="form-control" id="fechaNac" name="fechaNac" placeholder="22-11-2015">
                 </div>
               </th>
 
@@ -71,14 +71,14 @@
         </div>
         <hr>
 
-        <!--Datos Personales-->
+        <!--Actualizar salario-->
         <div>
           <label class="form-label">Salario</label>
 
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="$1'500.000" aria-label="$1'500.000"
+            <input type="text" class="form-control" id="salario" name="salario" placeholder="$1'500.000" aria-label="$1'500.000"
               aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="button" id="btn_modificar_salario">Modificar</button>
+            <button class="btn btn-outline-secondary" type="button" id="btn_modificar_salario">Actualizar Salario</button>
           </div>
 
         </div>
@@ -113,7 +113,7 @@
         <div>
           <label class="form-label">Extras</label>
           <div class="centrar_boton">
-            <a class="btn btn-success" href="#" role="button">Extra 1</a>
+            <a class="btn btn-success" href="#" role="button" onclick="calcularEdad()">Extra 1</a>
             <a class="btn btn-success" href="#" role="button">Extra 2</a>
           </div>
 
@@ -123,5 +123,5 @@
     </div>
   </div>
 </body>
-
+<script type="text/javascript" src="js/back-end.js"></script>
 </html>
