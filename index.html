@@ -1,328 +1,288 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sistema de empleados</title>
 
-    <link rel="stylesheet" href="./Css/Style.css" />
-    <link rel="icon" type="image/x-icon" href="./Img/" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="Bootstrap/css/bootstrap.min.css"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      type="text/javascript"
-      src="Bootstrap/js/bootstrap.bundle.min.js"
-    ></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de empleados</title>
 
-  <body>
-    <div class="center_forms">
-      <div class="card">
-        <h3 class="card-header text-center">SISTEMA DE EMPLEADOS</h3>
-        <div class="card-body">
-          <form>
-            <!--Datos Personales-->
-            <div>
-              <table class="table">
-                <tr>
-                  <th>
-                    <label class="form-label">Datos Personales</label>
-                    <div class="mb-3">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        class="form-label"
-                        >Nombre</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="nombre"
-                        name="nombre"
-                        placeholder="Nombre"
-                      />
-                    </div>
-                    <p class="card-text" id="visnombre"></p>
-                    <div class="mb-3">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        class="form-label"
-                        >Apellido</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="apellido"
-                        name='apellido'
-                        placeholder="Apellido"
-                      />
-                    </div>
+  <link rel="stylesheet" href="./Css/Style.css" />
+  <link rel="icon" type="image/x-icon" href="./Img/" />
+  <link rel="stylesheet" type="text/css" href="Bootstrap/css/bootstrap.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="Bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
 
-                    <label for="gen" class="form-label">Género</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gen" id="gen" value="M">
-                      <label class="form-check-label" for="gen">
-                        M
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="gen" id="gen2" value="F">
-                      <label class="form-check-label" for="gen2">
-                        F
-                      </label>
-                    </div>
+<body>
+  <div class="center_forms">
+    <div class="card">
+      <h3 class="card-header text-center">SISTEMA DE EMPLEADOS</h3>
+      <div class="card-body">
+        <form>
+          <!--Datos Personales-->
+          <div>
+            <table class="table">
+              <tr>
+                <th>
+                  <label class="form-label">Datos Personales</label>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" />
+                  </div>
+                  <p class="card-text" id="visnombre"></p>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name='apellido' placeholder="Apellido" />
+                  </div>
 
-                    <div class="mb-3">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        class="form-label"
-                        >Fecha de Nacimiento</label
-                      >
-                      <input
-                        type="text"
-                        id="fechaNac"
-                        name="fechaNac"
-                        class="form-control"
-                        id="txt_nombre"
-                        placeholder="22-8-1995"
-                      />
-                    </div>
+                  <label for="gen" class="form-label">Género</label>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gen" id="gen" value="M">
+                    <label class="form-check-label" for="gen">
+                      M
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gen" id="gen2" value="F">
+                    <label class="form-check-label" for="gen2">
+                      F
+                    </label>
+                  </div>
 
-                    <div class="mb-3">
-                      <label
-                        for="exampleFormControlTextarea1"
-                        class="form-label"
-                        >Fecha de Ingreso</label
-                      >
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="fIngreso"
-                        name="fIngreso"
-                        placeholder="22-11-2015"
-                      />
-                    </div>
-                  </th>
+                  <div class="mb-3">
+                    <br>
+                    <label for="exampleFormControlTextarea1" class="form-label">Fecha de Nacimiento</label>
+                    <input type="text" id="fechaNac" name="fechaNac" class="form-control" id="txt_nombre"
+                      placeholder="22-8-1995" />
+                  </div>
 
-                  <th>
-                    <div>
-                      <!--IMAGEN DE USUARIO-->
-                    </div>
-                  </th>
-                </tr>
-              </table>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Fecha de Ingreso</label>
+                    <input type="text" class="form-control" id="fIngreso" name="fIngreso" placeholder="22-11-2015" />
+                  </div>
+                </th>
+
+                <th>
+                  <div>
+                    <!--IMAGEN DE USUARIO-->
+                  </div>
+                </th>
+              </tr>
+            </table>
+          </div>
+
+          <!--Actualizar salario-->
+          <div>
+            <label class="form-label">Salario</label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="salario" name="salario" placeholder="$1'500.000"
+                aria-label="$1'500.000" aria-describedby="button-addon2" />
+              <button class="btn btn-outline-secondary" type="button" id="btn_modificar_salario">
+                Actualizar Salario
+              </button>
             </div>
-            <hr />
+          </div>
 
-            <!--Actualizar salario-->
-            <div>
-              <label class="form-label">Salario</label>
-
-              <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="salario"
-                  name="salario"
-                  placeholder="$1'500.000"
-                  aria-label="$1'500.000"
-                  aria-describedby="button-addon2"
-                />
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="btn_modificar_salario"
-                >
-                  Actualizar Salario
-                </button>
-              </div>
+          <!--HORAS EXTRAS-->
+          <div class="">
+            <label class="form-label">Horas extra diurnas</label>
+            <p>Durante el último mes usted ha trabajado horas extra diurnas:</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Si trabajó horas extras diurnas
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                No trabajó horas extras diurnas
+              </label>
             </div>
             <div class="mb-3">
-              <label for="formFile" class="form-label">Subir foto</label>
-              <input class="form-control" type="file" id="imagen" accept="image/*" onchange="mostrar_datos()"/>
               <br>
-              
+              <label class="form-label">Numero de horas extra trabajadas</label>
+              <input type="text" class="form-control" id="numHoras" name="numHoras" placeholder="3 horas" />
+            </div>
+            <br>
+            <p>*El valor de cada hora ordinaria, que para el salario mínimo es de $ 4.166, por las 8 horas laborales
+              ordinarias, es
+              decir, $ 33.328</p>
+          </div>
+          <hr>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Subir foto</label>
+            <input class="form-control" type="file" id="imagen" accept="image/*" onchange="mostrar_datos()" />
+          </div>
+
+          <hr>
+          <!--Cálculos-->
+          <div>
+            <label class="form-label">Calculos</label>
+
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button" id="btn_edad">
+                Calcular Edad
+              </button>
+              <input type="text" class="form-control" placeholder="32 años" aria-label="Example text with button addon"
+                aria-describedby="button-addon1" />
             </div>
 
-            <hr />
-            <!--Cálculos-->
-            <div>
-              <label class="form-label">Calculos</label>
-
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="btn_edad"
-                >
-                  Calcular Edad
-                </button>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="32 años"
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1"
-                />
-              </div>
-
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="btn_antiguedad"
-                >
-                  Calcular Antiguedad
-                </button>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="7 años"
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1"
-                />
-              </div>
-
-              <div class="input-group mb-3">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="btn_pestacion"
-                >
-                  Calcular Prestaciones
-                </button>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="$1'500.000"
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1"
-                />
-              </div>
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button" id="btn_antiguedad">
+                Calcular Antiguedad
+              </button>
+              <input type="text" class="form-control" placeholder="7 años" aria-label="Example text with button addon"
+                aria-describedby="button-addon1" />
             </div>
 
-            <hr />
-            <!--Extras-->
-            <div>
-              <label class="form-label">Extras</label>
-
-              <label for="factor" class="form-label ">Factor actividad</label>
-              <div class="input-group mb-3">
-
-                <select class="form-select" aria-label="Default select example"
-                  id="nivelR" name="nivelR">
-                  <option selected value="0">Seleccione nivel de riesgo</option>
-                  <option value="0.00522">Nivel l</option>
-                  <option value="0.01044">Nivel ll</option>
-                  <option value="0.02436">Nivel lll</option>
-                  <option value="0.0435">Nivel lV</option>
-                  <option value="0.0696">Nivel V</option>
-                </select>
-              </div>
-
-              <table class="table">
-                <tr>
-                    <th>
-
-                        <div class="mb-3">
-    
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Salud</th>
-                                        <th scope="col">Pension</th>
-                                        <th scope="col">ARL</th>
-                                        <th scope="col">Total a pagar</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="salud"></td>
-                                        <td id="pension"></td>
-                                        <td id="arl"></td>
-                                        <td id="total"></td>
-                                    </tr>
-
-                                </tbody>
-                </table>
-              <div class="centrar_boton">
-                <a
-                  class="btn btn-success"
-                  href="#"
-                  role="button"
-                  onclick="mos()"
-                  >Extra 1</a
-                >
-                <a class="btn btn-success" href="#" role="button">Extra 2</a>
-              </div>
+            <div class="input-group mb-3">
+              <button class="btn btn-outline-secondary" type="button" id="btn_pestacion">
+                Calcular Prestaciones
+              </button>
+              <input type="text" class="form-control" placeholder="$1'500.000"
+                aria-label="Example text with button addon" aria-describedby="button-addon1" />
             </div>
-                        <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" onclick="mostrar_datos()" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Visualizar empleado
-            </button>
+          </div>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel ">Informacion del empleado</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <hr />
+          <!--Extras-->
+
+          <!--FACTOR SALUD-->
+          <div>
+            <label class="form-label">Extras</label>
+
+            <label for="factor" class="form-label ">Factor actividad</label>
+            <div class="input-group mb-3">
+
+              <select class="form-select" aria-label="Default select example" id="nivelR" name="nivelR">
+                <option selected value="0">Seleccione nivel de riesgo</option>
+                <option value="0.00522">Nivel l</option>
+                <option value="0.01044">Nivel ll</option>
+                <option value="0.02436">Nivel lll</option>
+                <option value="0.0435">Nivel lV</option>
+                <option value="0.0696">Nivel V</option>
+              </select>
+            </div>
+
+            <table class="table">
+              <tr>
+                <th>
+                  <div class="mb-3">
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">Salud</th>
+                          <th scope="col">Pension</th>
+                          <th scope="col">ARL</th>
+                          <th scope="col">Total a pagar</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td id="salud"></td>
+                          <td id="pension"></td>
+                          <td id="arl"></td>
+                          <td id="total"></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col"># Horas Extra</th>
+                          <th scope="col">Liquidación por Horas extra</th>
+                          <th scope="col">Total Salario</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td id="numHorasExtra"></td>
+                          <td id="totalLiquidacion"></td>
+                          <td id="totalSalario"></td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+                    <div class="centrar_boton">
+                      <a class="btn btn-success" href="#" role="button" onclick="mos()">Calcular prestación salud</a>
+                      <a class="btn btn-success" href="#" role="button" onclick="totalPagoHoras()">Calcular Total horas
+                        extra</a>
+                      <button type="button" class="btn btn-success" onclick="mostrar_datos()" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Visualizar empleado
+                      </button>
+                    </div>
                   </div>
-                  <div class="modal-body" id="verInfo">
-                    <table class="table">
-                      <tr>
-                          <th>
-      
-                              <div class="mb-3">
-          
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel ">Informacion del empleado</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="verInfo">
+                          <table class="table">
+                            <tr>
+                              <th>
+
+                                <div class="mb-3">
+
                                   <table class="table table-striped">
-                                      <thead>
-                                          <tr>
-                                              <th scope="col">Nombre</th>
-                                              <th scope="col">Apellido</th>
-                                              <th scope="col">Genero</th>
-                                              <th scope="col">Fecha de nacimiento</th>
-                                              <th scope="col">Foto</th>
-                                              <th scope="col">Fecha ingreso</th>
-                                              <th scope="col">Salario basico</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <td id="nomMos"></td>
-                                              <td id="apeMos"></td>
-                                              <td id="genMost"></td>
-                                              <td id="fechaNacMos"></td>
-                                              <td>
-                                                <img id="foto"/>
-                                              </td>
-                                              <td id="fechaIngMos"></td>
-                                              <td id="salMos"></td>
-                                          </tr>
-      
-                                      </tbody>
-                      </table>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Aceptar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido</th>
+                                        <th scope="col">Genero</th>
+                                        <th scope="col">Fecha de nacimiento</th>
+                                        <th scope="col">Foto</th>
+                                        <th scope="col">Fecha ingreso</th>
+                                        <th scope="col">Salario basico</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td id="nomMos"></td>
+                                        <td id="apeMos"></td>
+                                        <td id="genMost"></td>
+                                        <td id="fechaNacMos"></td>
+                                        <td>
+                                          <img id="foto" />
+                                        </td>
+                                        <td id="fechaIngMos"></td>
+                                        <td id="salMos"></td>
+                                      </tr>
+
+                                    </tbody>
+                                  </table>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cerrar</button>
+                                  <button type="button" class="btn btn-primary">Aceptar</button>
+                                </div>
+                        </div>
+                      </div>
+                    </div>
+        </form>
       </div>
     </div>
-  </body>
-  <script type="text/javascript" src="js/back-end.js"></script>
+  </div>
+</body>
+<script type="text/javascript" src="js/back-end.js"></script>
+
 </html>
