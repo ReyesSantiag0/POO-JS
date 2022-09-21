@@ -82,20 +82,20 @@ class seguridad_social {
 
     calcularSalud() {
         var obj = new Empleado();
-        let salar = obj.actualizarSalario();
+        let salar = obj.toStringSalario();
         let resS = this.salud * salar;
         return resS;
     }
     calcularPension() {
         var obj = new Empleado();
-        let pens = obj.actualizarSalario();
+        let pens = obj.toStringSalario();
         let resP = this.pension * pens;
         return resP;
     }
     calcularArl() {
         var obj = new Empleado();
         this.arl = parseFloat(document.getElementById("nivelR").value);
-        let SalArl = obj.actualizarSalario();
+        let SalArl = obj.toStringSalario();
         let resA = this.arl * SalArl;
         return resA;
     }
