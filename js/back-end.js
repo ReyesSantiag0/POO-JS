@@ -1,3 +1,5 @@
+//CLASE QUE REALIZA EL TRATAMIENTO DE LA INFORMACION PERSONAL DEL EMPLEADO
+
 class Empleado {
   constructor(Nombre, Apellido, Genero, FechaNac, FechaIngr, Foto, Salario) {
     this.Nombre = Nombre;
@@ -38,6 +40,7 @@ class Empleado {
     let Calcular_Edad = document.getElementById("fechaNac").value;
     let anio = parseInt(Calcular_Edad.substr(6, 4));
     let eda = 2022 - anio;
+    return eda;
   }
   calcularAntig() {
     let Fecha_Ingreso = document.getElementById("fIngreso").value;
@@ -46,13 +49,16 @@ class Empleado {
     return antiguedad;
   }
   calcularPrestac() {
-    let anti = new this.calcularAntig();
-    let sal = new this.actualizarSalario();
+    let anti = this.calcularAntig();
+    let sal = this.toStringSalario();
     let prestaciones = (anti * sal) / 12;
-    return prestaciones;
+    return prestaciones.toFixed(2);
   }
 }
 
+//INVOCACION DE METODOS A TRAVES DE SUS FUNCIONES DE LA CLASE EMPLEADO
+
+//Funcion para visualizar la informacion del empleado
 let verinfo = new Empleado();
 
 function mostrar_datos() {
@@ -63,6 +69,7 @@ function mostrar_datos() {
       document.getElementById("foto").src = reader.result;
     };
   }
+
   document.getElementById("nomMos").innerHTML = verinfo.toStringNombre();
   document.getElementById("apeMos").innerHTML = verinfo.toStringApellido();
   document.getElementById("genMost").innerHTML = verinfo.toStringGenero();
@@ -70,6 +77,27 @@ function mostrar_datos() {
   document.getElementById("fechaIngMos").innerHTML = verinfo.toStringFechaIng();
   document.getElementById("salMos").innerHTML = verinfo.toStringSalario();
 }
+//Funcion para conocer la edad actual del empleado
+function edad_emple() {
+  var emp = new Empleado();
+  let Edad = emp.calcularEdad();
+  document.getElementById("inpedad").innerHTML = Edad;
+}
+//Funcion para visualizar los años que ha trabajado en la organzacion
+function antiguedad() {
+  var emple = new Empleado();
+  let Antigu = emple.calcularAntig();
+  document.getElementById("antig").innerHTML = Antigu;
+}
+//Funcion para visualizar la informacion del empleado
+function prestacion() {
+  var emplea = new Empleado();
+  let Antigu = emplea.calcularPrestac();
+  document.getElementById("presta").innerHTML = Antigu;
+}
+/////////////////////////////////////////////////////////////////////////////////////
+
+//CLASE QUE CALCULA LOS VALORES CORRESPONDIENTES A LA SEGURIDAD SOCIAL DE UN EMPLEADO
 
 class seguridad_social {
   constructor(salud, pension, arl, total) {
@@ -105,13 +133,28 @@ class seguridad_social {
   }
 }
 
-let resul = new seguridad_social();
-function mos() {
-  document.getElementById("salud").innerHTML = resul.calcularSalud();
-  document.getElementById("pension").innerHTML = resul.calcularPension();
-  document.getElementById("arl").innerHTML = resul.calcularArl();
-  document.getElementById("total").innerHTML = resul.totalPago();
+//INVOCACION DE METODOS A TRAVES DE SUS FUNCIONES DE LA CLASE EMPLEADO
+
+//Creacion de funciones para interactuar con el Front-End a traves del DOM
+
+function mostrarSegSocial() {
+  var resul = new seguridad_social();
+  var salEmp = new Empleado();
+  this.arl = parseFloat(document.getElementById("nivelR").value);
+  this.Salario = parseFloat(document.getElementById("salario").value);
+
+  if (this.arl == 0) {
+    alert("El Factor de actividad es un campo obligatorio");
+  } else {
+    document.getElementById("salud").innerHTML = resul.calcularSalud();
+    document.getElementById("pension").innerHTML = resul.calcularPension();
+    document.getElementById("arl").innerHTML = resul.calcularArl().toFixed(2);
+    document.getElementById("total").innerHTML = resul.totalPago();
+  }
 }
+///////////////////////////////////////////////////////////////////////////////
+
+//CLASE QUE CALCULA EL MONTO GANADO AL TRABAJAR POR HORAS EXTRAS DE FORMA DIURNA
 
 class horasExtra {
   constructor(
@@ -149,7 +192,10 @@ class horasExtra {
   }
 }
 
+//Definicion de funciones para interactuar enviar la informacion resultante al usuario
+
 let totalPagoHorasDiurnas = new horasExtra();
+
 function totalPagoHoras() {
   document.getElementById("numHorasExtra").innerHTML =
     totalPagoHorasDiurnas.totalHoras();
@@ -160,3 +206,5 @@ function totalPagoHoras() {
   document.getElementById("totalSalario").innerHTML =
     totalPagoHorasDiurnas.totalSalarioMes();
 }
+
+///////////////////////////////////////////////////////////////////////////////////////

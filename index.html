@@ -19,9 +19,9 @@
 <body>
   <div class="center_forms">
     <div class="card">
-      <h3 class="card-header text-center">SISTEMA DE EMPLEADOS</h3>
+      <h3 class="card-header text-center fw-bold">SISTEMA DE EMPLEADOS</h3>
       <div class="card-body">
-        <form>
+        <form id="form">
           <!--Datos Personales-->
           <div>
             <table class="table">
@@ -30,23 +30,24 @@
                   <label class="form-label">Datos Personales</label>
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" />
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required />
                   </div>
                   <p class="card-text" id="visnombre"></p>
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" name='apellido' placeholder="Apellido" />
+                    <input type="text" class="form-control" id="apellido" name='apellido' placeholder="Apellido"
+                      required />
                   </div>
 
                   <label for="gen" class="form-label">Género</label>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gen" id="gen" value="M">
+                    <input class="form-check-input" type="radio" name="gen" id="gen" value="M" required>
                     <label class="form-check-label" for="gen">
                       M
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gen" id="gen2" value="F">
+                    <input class="form-check-input" type="radio" name="gen" id="gen2" value="F" required>
                     <label class="form-check-label" for="gen2">
                       F
                     </label>
@@ -55,13 +56,14 @@
                   <div class="mb-3">
                     <br>
                     <label for="exampleFormControlTextarea1" class="form-label">Fecha de Nacimiento</label>
-                    <input type="text" id="fechaNac" name="fechaNac" class="form-control" id="txt_nombre"
-                      placeholder="22-8-1995" />
+                    <input type="text" id="fechaNac" name="fechaNac" class="form-control" id="txt_nombre" required
+                      placeholder="22-08-1995" />
                   </div>
 
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Fecha de Ingreso</label>
-                    <input type="text" class="form-control" id="fIngreso" name="fIngreso" placeholder="22-11-2015" />
+                    <input type="text" class="form-control" id="fIngreso" name="fIngreso" placeholder="22-11-2015"
+                      required />
                   </div>
                 </th>
 
@@ -86,32 +88,7 @@
             </div>
           </div>
 
-          <!--HORAS EXTRAS-->
-          <div class="">
-            <label class="form-label">Horas extra diurnas</label>
-            <p>Durante el último mes usted ha trabajado horas extra diurnas:</p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Si trabajó horas extras diurnas
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                No trabajó horas extras diurnas
-              </label>
-            </div>
-            <div class="mb-3">
-              <br>
-              <label class="form-label">Numero de horas extra trabajadas</label>
-              <input type="text" class="form-control" id="numHoras" name="numHoras" placeholder="3 horas" />
-            </div>
-            <br>
-            <p>*El valor de cada hora ordinaria, que para el salario mínimo es de $ 4.166, por las 8 horas laborales
-              ordinarias, es
-              decir, $ 33.328</p>
-          </div>
+
           <hr>
           <div class="mb-3">
             <label for="formFile" class="form-label">Subir foto</label>
@@ -124,27 +101,28 @@
             <label class="form-label">Calculos</label>
 
             <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button" id="btn_edad">
+              <button class="btn btn-outline-secondary" type="button" id="btn_edad" onclick="edad_emple()">
                 Calcular Edad
               </button>
-              <input type="text" class="form-control" placeholder="32 años" aria-label="Example text with button addon"
-                aria-describedby="button-addon1" />
+
+              <label type="text" class="form-control" id="inpedad" name="inpedad"
+                aria-label="Example text with button addon" aria-describedby="button-addon1" disabled></label>
             </div>
 
             <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button" id="btn_antiguedad">
+              <button class="btn btn-outline-secondary" type="button" id="btn_antiguedad" onclick="antiguedad()">
                 Calcular Antiguedad
               </button>
-              <input type="text" class="form-control" placeholder="7 años" aria-label="Example text with button addon"
-                aria-describedby="button-addon1" />
+              <label type="text" class="form-control" id="antig" name="antig"
+                aria-label="Example text with button addon " aria-describedby="button-addon2" disabled></label>
             </div>
 
             <div class="input-group mb-3">
-              <button class="btn btn-outline-secondary" type="button" id="btn_pestacion">
+              <button class="btn btn-outline-secondary" type="button" id="btn_pestacion" onclick="prestacion()">
                 Calcular Prestaciones
               </button>
-              <input type="text" class="form-control" placeholder="$1'500.000"
-                aria-label="Example text with button addon" aria-describedby="button-addon1" />
+              <label type="text" class="form-control" id="presta" name="presta"
+                aria-label="Example text with button addon " aria-describedby="button-addon2" disabled></label>
             </div>
           </div>
 
@@ -152,8 +130,21 @@
           <!--Extras-->
 
           <!--FACTOR SALUD-->
-          <div>
-            <label class="form-label">Extras</label>
+          <div class="text-center">
+            <div>
+              <h3>SEGURIDAD SOCIAL</h3>
+            </div>
+
+            <hr>
+
+            <div class="text-success">
+              <hr>
+            </div>
+
+            <hr class="border border-danger border-2 opacity-75">
+            <p> Con el fin conocer las cotizacionesque se deben realizar para garantizar el derecho a los servicios de
+              salud y seguridad, es posible calcular el monto en el siguiente apartado </p>
+            <hr class="border border-primary border-3 opacity-75">
 
             <label for="factor" class="form-label ">Factor actividad</label>
             <div class="input-group mb-3">
@@ -167,12 +158,11 @@
                 <option value="0.0696">Nivel V</option>
               </select>
             </div>
-
             <table class="table">
               <tr>
                 <th>
                   <div class="mb-3">
-
+                    <h4>Resultado</h4>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -194,6 +184,48 @@
                     </table>
 
 
+                    <div class="centrar_boton py-5">
+                      <a class="btn btn-success" href="#" role="button" onclick="mostrarSegSocial()">Calcular prestación
+                        salud</a>
+                    </div>
+                    <div class="text-center">
+                      <div>
+                        <h3>HORAS EXTRAS</h3>
+                      </div>
+                      <hr class="border border-danger border-2 opacity-75">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, minima? Sit vero mollitia
+                        quibusdam sed odit numquam eum corrupti nihil doloribus neque non iure aspernatur necessitatibus
+                        facere, assumenda facilis ab. </p>
+                      <hr class="border border-primary border-3 opacity-75">
+                      <!--HORAS EXTRAS-->
+                      <div class="">
+                        <p>Durante el último mes usted ha trabajado horas extra diurnas:</p>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Si trabajó horas extras diurnas
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                            checked>
+                          <label class="form-check-label" for="flexRadioDefault2">
+                            No trabajó horas extras diurnas
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <br>
+                          <label class="form-label">Numero de horas extra trabajadas</label>
+                          <input type="text" class="form-control" id="numHoras" name="numHoras" placeholder="3 horas" />
+                        </div>
+                        <br>
+                        <p>*El valor de cada hora ordinaria, que para el salario mínimo es de $ 4.166, por las 8 horas
+                          laborales
+                          ordinarias, es
+                          decir, $ 33.328</p>
+                      </div>
+                      <h4>Resultado</h4>
+                    </div>
                     <table class="table table-striped">
                       <thead>
                         <tr>
@@ -213,75 +245,72 @@
                       </tbody>
                     </table>
 
+                    <a class="btn btn-success" href="#" role="button" onclick="totalPagoHoras()">Calcular Total horas
+                      extra</a>
 
-                    <div class="centrar_boton">
-                      <a class="btn btn-success" href="#" role="button" onclick="mos()">Calcular prestación salud</a>
-                      <a class="btn btn-success" href="#" role="button" onclick="totalPagoHoras()">Calcular Total horas
-                        extra</a>
-                      <button type="button" class="btn btn-success" onclick="mostrar_datos()" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        Visualizar empleado
-                      </button>
-                    </div>
                   </div>
-
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel ">Informacion del empleado</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body" id="verInfo">
-                          <table class="table">
-                            <tr>
-                              <th>
-
-                                <div class="mb-3">
-
-                                  <table class="table table-striped">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Apellido</th>
-                                        <th scope="col">Genero</th>
-                                        <th scope="col">Fecha de nacimiento</th>
-                                        <th scope="col">Foto</th>
-                                        <th scope="col">Fecha ingreso</th>
-                                        <th scope="col">Salario basico</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <td id="nomMos"></td>
-                                        <td id="apeMos"></td>
-                                        <td id="genMost"></td>
-                                        <td id="fechaNacMos"></td>
-                                        <td>
-                                          <img id="foto" />
-                                        </td>
-                                        <td id="fechaIngMos"></td>
-                                        <td id="salMos"></td>
-                                      </tr>
-
-                                    </tbody>
-                                  </table>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cerrar</button>
-                                  <button type="button" class="btn btn-primary">Aceptar</button>
-                                </div>
-                        </div>
-                      </div>
-                    </div>
+          </div>
+          <div>
+            <hr class="border border-primary border-3 opacity-75">
+            <button type="button" class="btn btn-secondary" onclick="mostrar_datos()" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+              Visualizar empleado
+            </button>
+          </div>
         </form>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel ">Informacion del empleado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="verInfo">
+                <table class="table">
+                  <tr>
+                    <th>
+
+                      <div class="mb-3">
+
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th scope="col">Nombre</th>
+                              <th scope="col">Apellido</th>
+                              <th scope="col">Genero</th>
+                              <th scope="col">Fecha de nacimiento</th>
+                              <th scope="col">Foto</th>
+                              <th scope="col">Fecha ingreso</th>
+                              <th scope="col">Salario basico</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td id="nomMos"></td>
+                              <td id="apeMos"></td>
+                              <td id="genMost"></td>
+                              <td id="fechaNacMos"></td>
+                              <td>
+                                <img id="foto" />
+                              </td>
+                              <td id="fechaIngMos"></td>
+                              <td id="salMos"></td>
+                            </tr>
+
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                      </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
-  </div>
 </body>
 <script type="text/javascript" src="js/back-end.js"></script>
 
