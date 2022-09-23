@@ -1,5 +1,5 @@
 .center_forms {
-  width: 50%;
+  width: 55%;
   margin: auto;
   padding: 1em;
 }
@@ -11,4 +11,8 @@
 .img_usuario {
   width: 10%;
   height: 10%;
+}
+
+.centrar_select {
+  text-align: center;
 }

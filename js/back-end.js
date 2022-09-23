@@ -38,21 +38,47 @@ class Empleado {
 
   calcularEdad() {
     let Calcular_Edad = document.getElementById("fechaNac").value;
-    let anio = parseInt(Calcular_Edad.substr(6, 4));
-    let eda = 2022 - anio;
-    return eda;
+    if (Calcular_Edad <= 0 || Calcular_Edad.length == 0) {
+      alert("Valor incorrecto");
+      return 0;
+    } else {
+      let anio = parseInt(Calcular_Edad.substr(6, 4));
+      let eda = 2022 - anio;
+      return eda;
+    }
   }
+
   calcularAntig() {
     let Fecha_Ingreso = document.getElementById("fIngreso").value;
-    let ingreso = parseInt(Fecha_Ingreso.substr(6, 4));
-    let antiguedad = 2022 - ingreso;
-    return antiguedad;
+    if (Fecha_Ingreso <= 0 || Fecha_Ingreso.length == 0) {
+      alert("Valor incorrecto");
+      return 0;
+    } else {
+      let ingreso = parseInt(Fecha_Ingreso.substr(6, 4));
+      let antiguedad = 2022 - ingreso;
+      return antiguedad;
+    }
   }
+
   calcularPrestac() {
-    let anti = this.calcularAntig();
-    let sal = this.toStringSalario();
-    let prestaciones = (anti * sal) / 12;
-    return prestaciones.toFixed(2);
+    let salarioEmp = document.getElementById("salario").value;
+    let Calcular_Edad = document.getElementById("fechaNac").value;
+    let Fecha_Ingreso = document.getElementById("fIngreso").value;
+
+    if (
+      salarioEmp <= 0 ||
+      salarioEmp.length == 0 ||
+      Calcular_Edad.length == 0 ||
+      Fecha_Ingreso == 0
+    ) {
+      alert("Valor del salario incorrecto");
+      return 0;
+    } else {
+      let anti = this.calcularAntig();
+      let sal = this.toStringSalario();
+      let prestaciones = (anti * sal) / 12;
+      return prestaciones.toFixed(2);
+    }
   }
 }
 
@@ -60,22 +86,42 @@ class Empleado {
 
 //Funcion para visualizar la informacion del empleado
 let verinfo = new Empleado();
+let actSalario = new Empleado();
 
 function mostrar_datos() {
-  var reader = new FileReader();
-  if (imagen) {
-    reader.readAsDataURL(verinfo.toStringFoto());
-    reader.onloadend = function () {
-      document.getElementById("foto").src = reader.result;
-    };
-  }
+  let nombreEmp = document.getElementById("nombre").value;
+  let apellidoEmp = document.getElementById("apellido").value;
+  let fechaNacEmp = document.getElementById("fechaNac").value;
+  let fechaIngEmpl = document.getElementById("fIngreso").value;
+  let salarioEmp = document.getElementById("salario").value;
 
-  document.getElementById("nomMos").innerHTML = verinfo.toStringNombre();
-  document.getElementById("apeMos").innerHTML = verinfo.toStringApellido();
-  document.getElementById("genMost").innerHTML = verinfo.toStringGenero();
-  document.getElementById("fechaNacMos").innerHTML = verinfo.toStringFechaNac();
-  document.getElementById("fechaIngMos").innerHTML = verinfo.toStringFechaIng();
-  document.getElementById("salMos").innerHTML = verinfo.toStringSalario();
+  if (
+    nombreEmp.length == 0 ||
+    apellidoEmp.length == 0 ||
+    fechaNacEmp.length == 0 ||
+    fechaIngEmpl == 0 ||
+    salarioEmp <= 0 ||
+    salarioEmp.length == 0
+  ) {
+    alert("Existen campos vacios o erroneos, verifique");
+  } else {
+    var reader = new FileReader();
+    if (imagen) {
+      reader.readAsDataURL(verinfo.toStringFoto());
+      reader.onloadend = function () {
+        document.getElementById("foto").src = reader.result;
+      };
+    }
+
+    document.getElementById("nomMos").innerHTML = verinfo.toStringNombre();
+    document.getElementById("apeMos").innerHTML = verinfo.toStringApellido();
+    document.getElementById("genMost").innerHTML = verinfo.toStringGenero();
+    document.getElementById("fechaNacMos").innerHTML =
+      verinfo.toStringFechaNac();
+    document.getElementById("fechaIngMos").innerHTML =
+      verinfo.toStringFechaIng();
+    document.getElementById("salMos").innerHTML = verinfo.toStringSalario();
+  }
 }
 //Funcion para conocer la edad actual del empleado
 function edad_emple() {
@@ -95,6 +141,7 @@ function prestacion() {
   let Antigu = emplea.calcularPrestac();
   document.getElementById("presta").innerHTML = Antigu;
 }
+
 /////////////////////////////////////////////////////////////////////////////////////
 
 //CLASE QUE CALCULA LOS VALORES CORRESPONDIENTES A LA SEGURIDAD SOCIAL DE UN EMPLEADO
@@ -139,12 +186,11 @@ class seguridad_social {
 
 function mostrarSegSocial() {
   var resul = new seguridad_social();
-  var salEmp = new Empleado();
-  this.arl = parseFloat(document.getElementById("nivelR").value);
-  this.Salario = parseFloat(document.getElementById("salario").value);
+  let arl = document.getElementById("nivelR").value;
+  let salarioEmp = document.getElementById("salario").value;
 
-  if (this.arl == 0) {
-    alert("El Factor de actividad es un campo obligatorio");
+  if (arl == 0 || salarioEmp <= 0 || salarioEmp.length == 0) {
+    alert("Existen campos vacios o erroneos, verifique");
   } else {
     document.getElementById("salud").innerHTML = resul.calcularSalud();
     document.getElementById("pension").innerHTML = resul.calcularPension();
@@ -197,14 +243,25 @@ class horasExtra {
 let totalPagoHorasDiurnas = new horasExtra();
 
 function totalPagoHoras() {
-  document.getElementById("numHorasExtra").innerHTML =
-    totalPagoHorasDiurnas.totalHoras();
+  let numHorasExtra = document.getElementById("numHoras").value;
+  let salarioEmp = document.getElementById("salario").value;
+  if (
+    numHorasExtra <= 0 ||
+    numHorasExtra.length == 0 ||
+    salarioEmp <= 0 ||
+    salarioEmp.length == 0
+  ) {
+    alert("Existen campos vacíos o erroneos, verifique");
+  } else {
+    document.getElementById("numHorasExtra").innerHTML =
+      totalPagoHorasDiurnas.totalHoras();
 
-  document.getElementById("totalLiquidacion").innerHTML =
-    totalPagoHorasDiurnas.totalPagoHoras();
+    document.getElementById("totalLiquidacion").innerHTML =
+      totalPagoHorasDiurnas.totalPagoHoras();
 
-  document.getElementById("totalSalario").innerHTML =
-    totalPagoHorasDiurnas.totalSalarioMes();
+    document.getElementById("totalSalario").innerHTML =
+      totalPagoHorasDiurnas.totalSalarioMes();
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
