@@ -85,9 +85,15 @@
           <div>
             <label class="form-label">Salario</label>
             <div class="input-group mb-3">
-              <input type="text" class="form-control" id="salario" name="salario" placeholder="$1'500.000"
-                aria-label="$1'500.000" aria-describedby="button-addon2" />
-              <button class="btn btn-outline-secondary" onclick="" type="button" id="btn_modificar_salario">
+
+              <!-- <input type="text" class="form-control" id="salario" name="salario" placeholder="$1'500.000"
+                aria-label="$1'500.000" aria-describedby="button-addon2" /> -->
+
+              <label type="text" class="form-control" id="salario" name="salario"
+                aria-label="Example text with button addon" aria-describedby="button-addon1" disabled></label>
+
+              <button class="btn btn-outline-secondary" onclick="actualizarSalario()" type="button"
+                id="btn_modificar_salario">
                 Actualizar Salario
               </button>
             </div>
@@ -164,100 +170,98 @@
                 <option value="0.0696">Nivel V</option>
               </select>
             </div>
-            <table class="table">
-              <tr>
-                <th>
-                  <div class="mb-3">
-                    <h4>Resultado</h4>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">Salud</th>
-                          <th scope="col">Pension</th>
-                          <th scope="col">ARL</th>
-                          <th scope="col">Total a pagar</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td id="salud"></td>
-                          <td id="pension"></td>
-                          <td id="arl"></td>
-                          <td id="total"></td>
-                        </tr>
 
-                      </tbody>
-                    </table>
+            <div class="mb-3">
+              <h4>Resultado</h4>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Salud</th>
+                    <th scope="col">Pension</th>
+                    <th scope="col">ARL</th>
+                    <th scope="col">Total a pagar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="salud"></td>
+                    <td id="pension"></td>
+                    <td id="arl"></td>
+                    <td id="total"></td>
+                  </tr>
 
+                </tbody>
+              </table>
 
-                    <div class="centrar_boton py-5">
-                      <a class="btn btn-success" href="#" role="button" onclick="mostrarSegSocial()">Calcular prestación
-                        salud</a>
-                    </div>
-                    <div class="text-center">
-                      <div>
-                        <h3>HORAS EXTRAS</h3>
-                      </div>
-                      <hr class="border border-danger border-2 opacity-75">
-                      <p>Es importante tener en cuenta que la hora extra es aquella que supera la jornada
-                        de 8, 6 o 4
-                        horas diarias. En el siguiente apartado usted podrá calcular el pago por cada hora extra
-                        trabajada</p>
-                      <hr class="border border-primary border-3 opacity-75">
-                      <!--HORAS EXTRAS-->
-                      <div class="">
-                        <p>Durante el último mes usted ha trabajado horas extra diurnas:</p>
-                        <div class="form-check centrar_select">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                          <label class="form-check-label" for="flexRadioDefault1">
-                            Si trabajó horas extras diurnas
-                          </label>
-                        </div>
-                        <div class="form-check centrar_select">
-                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                            checked>
-                          <label class="form-check-label" for="flexRadioDefault2">
-                            No trabajó horas extras diurnas
-                          </label>
-                        </div>
-                        <div class="mb-3">
-                          <br>
-                          <label class="form-label">Numero de horas extra trabajadas</label>
-                          <input type="text" class="form-control" id="numHoras" name="numHoras" placeholder="3 horas" />
-                        </div>
-                        <br>
-                        <p>*El valor de cada hora ordinaria, que para el salario mínimo es de $ 4.166, por las 8 horas
-                          laborales
-                          ordinarias, es
-                          decir, $ 33.328</p>
-                      </div>
-                      <h4>Resultado</h4>
-                    </div>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col"># Horas Extra</th>
-                          <th scope="col">Liquidación por Horas extra</th>
-                          <th scope="col">Total Salario</th>
+            </div>
+            <div class="centrar_boton py-5">
+              <a class="btn btn-success" href="#" role="button" onclick="mostrarSegSocial()">Calcular prestación
+                salud</a>
+            </div>
 
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td id="numHorasExtra"></td>
-                          <td id="totalLiquidacion"></td>
-                          <td id="totalSalario"></td>
-
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <a class="btn btn-success" href="#" role="button" onclick="totalPagoHoras()">Calcular Total horas
-                      extra</a>
-
-                  </div>
           </div>
-          <div>
+          <div class="text-center">
+            <div>
+              <h3>HORAS EXTRAS</h3>
+            </div>
+            <hr class="border border-danger border-2 opacity-75">
+            <p>Es importante tener en cuenta que la hora extra es aquella que supera la jornada
+              de 8, 6 o 4
+              horas diarias. En el siguiente apartado usted podrá calcular el pago por cada hora extra
+              trabajada.</p>
+            <hr class="border border-primary border-3 opacity-75">
+            <!--HORAS EXTRAS-->
+            <div class="">
+              <p>Durante el último mes usted ha trabajado horas extra diurnas:</p>
+              <div class="form-check centrar_select">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Si trabajó horas extras diurnas
+                </label>
+              </div>
+              <div class="form-check centrar_select">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No trabajó horas extras diurnas
+                </label>
+              </div>
+              <div class="mb-3">
+                <br>
+                <label class="form-label">Numero de horas extra trabajadas</label>
+                <input type="text" class="form-control" id="numHoras" name="numHoras" placeholder="3 horas" />
+              </div>
+              <br>
+              <p>*El valor de cada hora ordinaria, que para el salario mínimo es de $ 4.166, por las 8 horas
+                laborales
+                ordinarias, es
+                decir, $ 33.328</p>
+            </div>
+            <h4>Resultado</h4>
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"># Horas Extra</th>
+                  <th scope="col">Liquidación por Horas extra</th>
+                  <th scope="col">Total Salario</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="numHorasExtra"></td>
+                  <td id="totalLiquidacion"></td>
+                  <td id="totalSalario"></td>
+
+                </tr>
+              </tbody>
+            </table>
+
+            <a class="btn btn-success" href="#" role="button" onclick="totalPagoHoras()">Calcular Total horas
+              extra</a>
+          </div>
+
+          <div class="text-center">
             <hr class="border border-primary border-3 opacity-75">
             <button type="button" class="btn btn-primary" onclick="mostrar_datos()" data-bs-toggle="modal"
               data-bs-target="#exampleModal">
@@ -265,6 +269,7 @@
             </button>
           </div>
         </form>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -299,7 +304,7 @@
                               <td id="genMost"></td>
                               <td id="fechaNacMos"></td>
                               <td>
-                                <img id="foto" style="max-width: 50%; height: auto; width: auto/9; "/>
+                                <img id="foto" style="max-width: 50%; height: auto; width: auto/9; " />
                               </td>
                               <td id="fechaIngMos"></td>
                               <td id="salMos"></td>

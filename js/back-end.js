@@ -29,9 +29,10 @@ class Empleado {
   }
   toStringSalario() {
     return (this.Salario = parseFloat(
-      document.getElementById("salario").value
+      document.getElementById("salario").innerHTML
     ));
   }
+
   toStringFoto() {
     return (this.Foto = document.getElementById("imagen").files[0]);
   }
@@ -61,7 +62,7 @@ class Empleado {
   }
 
   calcularPrestac() {
-    let salarioEmp = document.getElementById("salario").value;
+    let salarioEmp = document.getElementById("salario").innerHTML;
     let Calcular_Edad = document.getElementById("fechaNac").value;
     let Fecha_Ingreso = document.getElementById("fIngreso").value;
 
@@ -86,14 +87,25 @@ class Empleado {
 
 //Funcion para visualizar la informacion del empleado
 let verinfo = new Empleado();
-let actSalario = new Empleado();
+
+function actualizarSalario() {
+  let actSalario = new Empleado();
+  let actSalarioEm = prompt("Ingrese el nuevo salario");
+
+  if (actSalarioEm <= 0 || actSalarioEm.length == 0) {
+    alert("Salario invalido");
+  } else {
+    actSalario.toStringSalario(actSalarioEm);
+    document.getElementById("salario").innerHTML = actSalarioEm;
+  }
+}
 
 function mostrar_datos() {
   let nombreEmp = document.getElementById("nombre").value;
   let apellidoEmp = document.getElementById("apellido").value;
   let fechaNacEmp = document.getElementById("fechaNac").value;
   let fechaIngEmpl = document.getElementById("fIngreso").value;
-  let salarioEmp = document.getElementById("salario").value;
+  let salarioEmp = document.getElementById("salario").innerHTML;
 
   if (
     nombreEmp.length == 0 ||
@@ -187,7 +199,7 @@ class seguridad_social {
 function mostrarSegSocial() {
   var resul = new seguridad_social();
   let arl = document.getElementById("nivelR").value;
-  let salarioEmp = document.getElementById("salario").value;
+  let salarioEmp = document.getElementById("salario").innerHTML;
 
   if (arl == 0 || salarioEmp <= 0 || salarioEmp.length == 0) {
     alert("Existen campos vacios o erroneos, verifique");
@@ -244,7 +256,7 @@ let totalPagoHorasDiurnas = new horasExtra();
 
 function totalPagoHoras() {
   let numHorasExtra = document.getElementById("numHoras").value;
-  let salarioEmp = document.getElementById("salario").value;
+  let salarioEmp = document.getElementById("salario").innerHTML;
   if (
     numHorasExtra <= 0 ||
     numHorasExtra.length == 0 ||
