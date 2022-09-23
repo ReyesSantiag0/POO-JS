@@ -39,24 +39,43 @@ class Empleado {
 
   calcularEdad() {
     let Calcular_Edad = document.getElementById("fechaNac").value;
-    if (Calcular_Edad <= 0 || Calcular_Edad.length == 0) {
-      alert("Valor incorrecto");
+    var fechaAct = new Date();
+    var añoact = fechaAct.getFullYear();
+    let año_Ingr = document.getElementById("fIngreso").value;
+    let anio = parseInt(Calcular_Edad.substr(6, 4));
+    if (
+      Calcular_Edad <= 0 ||
+      Calcular_Edad.length == 0 ||
+      añoact == anio ||
+      anio >= añoact ||
+      Calcular_Edad >= año_Ingr  
+
+    ) {
+      alert("Fecha incorrecta");
       return 0;
     } else {
-      let anio = parseInt(Calcular_Edad.substr(6, 4));
-      let eda = 2022 - anio;
+      let eda = añoact - anio;
       return eda;
     }
   }
 
   calcularAntig() {
     let Fecha_Ingreso = document.getElementById("fIngreso").value;
-    if (Fecha_Ingreso <= 0 || Fecha_Ingreso.length == 0) {
-      alert("Valor incorrecto");
+    var fechaAct = new Date();
+    var añoact = fechaAct.getFullYear();
+    let ingreso = parseInt(Fecha_Ingreso.substr(6, 4));
+
+    if (
+      Fecha_Ingreso <= 0 ||
+      Fecha_Ingreso.length == 0 ||
+      ingreso >= añoact
+    ) {
+      alert("Fecha incorrecta");
       return 0;
     } else {
       let ingreso = parseInt(Fecha_Ingreso.substr(6, 4));
-      let antiguedad = 2022 - ingreso;
+
+      let antiguedad = añoact - ingreso;
       return antiguedad;
     }
   }
